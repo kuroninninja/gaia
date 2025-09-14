@@ -9,6 +9,11 @@ namespace Commands.Move
             // Depending on the player location, call a different function
             // which itself uses the userCommand argument to determine
             // destination and behavior.
+            string[] splitCommand = userCommand.Split(' ');
+            foreach (string token in splitCommand)
+            {
+                Console.WriteLine(token);
+            }
         }
     }
 }
