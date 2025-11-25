@@ -16,6 +16,14 @@ namespace gaia.prompter
             string[] moveStatements = ["move", "go", "leave", "get up", "get out"];
             // Check if any of the commands align with the input
             bool startsWithMove = moveStatements.Any(comm => input.StartsWith(comm));
+
+            var parserOutput = Parser.Parse(input);
+            
+            foreach (string character in parserOutput)
+            {
+                Console.WriteLine(character);
+            }
+
             // For each possible command, check if it aligns: if it does, run said command
             if (exitStatements.Contains(input))
             {
