@@ -4,3 +4,4 @@ global using gaia.locations;
 global using Commands.Move;
 global using gaia.describer;
 global using gaia.parser;
+global using gaia.tokens;
