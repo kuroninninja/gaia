@@ -6,11 +6,6 @@ namespace MoveComm.Destinations
     {
         public static void StartingBed(string userCommand)
         {
-            string[] splitCommand = userCommand.Split(' ');
-            foreach (string token in splitCommand)
-            {
-                Console.WriteLine(token);
-            }
         }
     }
 }
