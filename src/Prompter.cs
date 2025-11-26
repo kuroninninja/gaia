@@ -19,7 +19,7 @@ namespace gaia.prompter
 
             var parserOutput = Parser.Parse(input);
             
-            foreach (string character in parserOutput)
+            foreach (Token character in parserOutput)
             {
                 Console.WriteLine(character);
             }
