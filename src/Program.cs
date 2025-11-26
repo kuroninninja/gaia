@@ -6,6 +6,7 @@ namespace gaia.start
     {
         public static void Main()
         {
+            Console.Clear();
             // Repeat forever until exited
             while (true)
             {
