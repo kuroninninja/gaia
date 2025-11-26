@@ -4,6 +4,9 @@ namespace gaia.tokens
 {
     public enum Token
     {
-        UnknownItem
+        UnknownItem,
+        QuitComm,
+        ContextObj,
+        GetComm
     }
 }
