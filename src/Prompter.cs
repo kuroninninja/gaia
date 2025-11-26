@@ -6,6 +6,8 @@ namespace gaia.prompter
     {
         public static void Prompt()
         {
+            // Update top bar
+            TopBar.Update();
             // Set previous location
             Player.previousLocation = Player.location;
             // Ask for input
@@ -27,6 +29,7 @@ namespace gaia.prompter
             // For each possible command, check if it aligns: if it does, run said command
             if (exitStatements.Contains(input))
             {
+                Console.Clear();
                 Environment.Exit(0);
             }
             else if (startsWithMove)
