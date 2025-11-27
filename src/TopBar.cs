@@ -13,16 +13,12 @@ namespace gaia.topbar
 
             Console.SetCursorPosition(0, topLine);
 
-            string barText = "GAIA";
+            string barText = "\x1b[1m\x1b[7mGAIA";
             string barEndText = $"{Player.location.GetDescription()}";
-            string barMiddleText = new string(' ', width - (barText.Length + barEndText.Length));
+            string barMiddleText = new string(' ', width - ((barText.Length - 7) + barEndText.Length));
             
-            barText = barText + barMiddleText + barEndText;
+            barText = barText + barMiddleText + barEndText + "\x1b[0m";
             
-
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.BackgroundColor = ConsoleColor.White;
-
             // Clear line
             Console.Write(new string(' ', width - 1));
             Console.SetCursorPosition(0, topLine);
