@@ -11,7 +11,10 @@ namespace gaia.prompter
             // Set previous location
             Player.previousLocation = Player.location;
             // Ask for input
-            Console.Write(">  ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\x1b[1m>  \x1b[0m");
+            Console.ResetColor();
+            // Get input
             string input = Console.ReadLine().ToLower(); // Lowercase for simplicity
             // Variations of commands
             string[] exitStatements = ["quit"];
@@ -27,10 +30,27 @@ namespace gaia.prompter
             }
 
             // For each possible command, check if it aligns: if it does, run said command
-            if (exitStatements.Contains(input))
+            if (parserOutput[0] == Token.QuitComm)
             {
-                Console.Clear();
-                Environment.Exit(0);
+                bool answered = false;
+                while (!answered)
+                {
+                    Console.Write("Quit? (y/n)  ");
+                    string answer = Console.ReadLine();
+                    if (answer.ToLower() == "y")
+                    {
+                        Console.Clear();
+                        Environment.Exit(0);
+                    }
+                    else if (answer.ToLower() == "n")
+                    {
+                        answered = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("I couldn't understand that.");
+                    }
+                }
             }
             else if (startsWithMove)
             {
