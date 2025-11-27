@@ -35,20 +35,49 @@ namespace gaia.prompter
                 bool answered = false;
                 while (!answered)
                 {
-                    Console.Write("Quit? (y/n)  ");
-                    string answer = Console.ReadLine();
+                    // Set color
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    // Hide cursor
+                    Console.CursorVisible = false;
+                    Console.WriteLine("\x1b[1mQuit? (y/n)\x1b[0m");
+                    Console.ResetColor();
+                    // Read key and convert to string
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                    var answer = (keyInfo.Key).ToString();
                     if (answer.ToLower() == "y")
                     {
+                        // Quit Gaia
                         Console.Clear();
+                        Console.CursorVisible = true;
                         Environment.Exit(0);
                     }
                     else if (answer.ToLower() == "n")
                     {
+                        // Get current line (since it is below, subtract 1 to get true)
+                        int currentLine = Console.CursorTop - 1;
+                        Console.SetCursorPosition(0, currentLine);
+                        // Clear question
+                        Console.WriteLine(new string(' ', Console.WindowWidth));
+                        Console.SetCursorPosition(0, currentLine + 1);
+                        // Clear potential error
+                        Console.WriteLine(new string(' ', Console.WindowWidth));
+                        // Reset cursor
+                        Console.SetCursorPosition(0, currentLine);
+                        Console.CursorVisible = true;
+                        // Exit loop
                         answered = true;
                     }
                     else
                     {
-                        Console.WriteLine("I couldn't understand that.");
+                        // Ditto above
+                        int currentLine = Console.CursorTop - 1;
+                        // Go to line below question
+                        Console.SetCursorPosition(0, currentLine + 1);
+                        // Set color to red, show error
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("I couldn't understand that.");
+                        // Reset cursor
+                        Console.SetCursorPosition(0, currentLine);
                     }
                 }
             }
