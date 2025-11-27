@@ -13,6 +13,8 @@ namespace gaia.tokenizer
             List<string> contextObjects = ["it", "that", "them"];
             // Each get token
             List<string> getStatements = ["get", "grab", "take"];
+            // Each move token
+            List<string> moveStatements = ["move", "go", "run", "walk"];
             for(int i = 0; i < cleanedInput.Count; i++)
             {
                 var item = cleanedInput[i];
@@ -27,6 +29,9 @@ namespace gaia.tokenizer
                 else if (getStatements.Contains(item))
                 {
                     output.Add(Token.GetComm);
+                }
+                else if (moveStatements.Contains(item)
+                {
                 }
                 else
                 {
