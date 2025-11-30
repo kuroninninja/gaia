@@ -1,2 +1,2 @@
 Command used to build self-contained project:
-dotnet publish -c Release -o bin/linux-arm -r linux-arm --self-contained true
+dotnet publish -c Release -r linux-arm -o ./bin/linux-arm /p:PublishSingleFile=true /p:PublishTrimmed=true --self-contained true
